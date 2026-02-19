@@ -85,6 +85,16 @@ docker compose down
 | PostgreSQL | localhost:5432         | Database (optional access)   |
 +------------+------------------------+------------------------------+
 ```
+## screenshots
+<img width="1292" height="700" alt="react-running-locally" src="https://github.com/user-attachments/assets/b7eca5b3-ce3b-42ed-87df-b3799e5d41eb" />
+
+<img width="1285" height="692" alt="react-running-in-docker" src="https://github.com/user-attachments/assets/301231f9-0c77-43bc-9f1c-3692032f41bd" />
+
+<img width="603" height="77" alt="compose-up" src="https://github.com/user-attachments/assets/a0e249d6-e46b-4fad-8a86-00b127f5e1a6" />
+
+<img width="1273" height="720" alt="compose-frontend" src="https://github.com/user-attachments/assets/97316fde-7510-400f-83b1-8b4a6c5e29f6" />
+
+<img width="766" height="247" alt="compose-backend" src="https://github.com/user-attachments/assets/7a8801ac-c18f-4e97-9705-d050cad80fd1" />
 
 ## Technologies used
 
