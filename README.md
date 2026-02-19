@@ -56,10 +56,13 @@ docker compose up --build
 
 ## Stop all services
 
+```bash
 docker compose down
+--
 
 ##  Application URLs
 
+```bash
 +------------+------------------------+------------------------------+
 | Service    | URL                    | Description                  |
 +------------+------------------------+------------------------------+
@@ -67,56 +70,46 @@ docker compose down
 | Backend    | http://localhost:5000  | Express API                  |
 | PostgreSQL | localhost:5432         | Database (optional access)   |
 +------------+------------------------+------------------------------+
-
+--
 
 ## Screenshots
 
 ## Technologies used
 
-React (Frontend)
-
-Node.js + Express (Backend)
-
-PostgreSQL (Database)
-
-Docker (Containerization)
-
-Docker Compose (Orchestration)
-
-Nginx (Frontend web server)
+- React (Frontend)
+- Node.js + Express (Backend)
+- PostgreSQL (Database)
+- Docker (Containerization)
+- Docker Compose (Orchestration)
+- Nginx (Frontend web server)
 
 ## Docker Compose Services
 
-Frontend
-Built using multi‑stage Dockerfile
+### Frontend
+- Built using multi‑stage Dockerfile
+- Served by Nginx
+- Exposed on port 3000
 
-Served by Nginx
+### Backend
+- Node.js + Express
+- Exposed on port 5000
+- Connects to PostgreSQL using environment variables
 
-Exposed on port 3000
-
-Backend
-Node.js + Express
-
-Exposed on port 5000
-
-Connects to PostgreSQL using environment variables
-
-Database
-PostgreSQL 15
-
-Persistent storage using Docker volume pgdata
+### Database
+- PostgreSQL 15
+- Persistent storage using Docker volume pgdata
 
 ## How to Run the Project
+
 1.Clone the repository
-
 2.Navigate into the project folder
-
 3.Run:
 
+```bash
 docker compose up --build
+--
 
 4.Open browser:
 
-Frontend → http://localhost:3000
-
-Backend → http://localhost:5000
+- Frontend → http://localhost:3000
+- Backend → http://localhost:5000
