@@ -12,6 +12,8 @@ This project demonstrates essential DevOps skills:
 - Orchestrating multiple services with Docker Compose  
 
 ---
+## Project Structure
+```
 
 fullstack-docker-compose/
 │
@@ -27,7 +29,7 @@ fullstack-docker-compose/
 │
 ├── docker-compose.yml
 └── README.md
-
+```
 ---
 
 ##  Architecture Overview
@@ -116,7 +118,9 @@ docker compose down
 ## How to Run the Project
 
 1.Clone the repository
+
 2.Navigate into the project folder
+
 3.Run:
 
 ```bash
