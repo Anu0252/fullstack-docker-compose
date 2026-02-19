@@ -1,8 +1,9 @@
 # Fullstack Docker Compose Project
 
-A complete full‑stack application running with **React (frontend)**, **Node.js/Express (backend)**, and **PostgreSQL (database)** — fully containerized and orchestrated using **Docker Compose**.
+A complete full stack application running with **React (frontend)**, **Node.js/Express (backend)**, and **PostgreSQL (database)** — fully containerized and orchestrated using **Docker Compose**.
 
 This project demonstrates essential DevOps skills:
+
 - Containerizing applications  
 - Multi‑stage Docker builds  
 - Running databases in containers  
@@ -11,8 +12,8 @@ This project demonstrates essential DevOps skills:
 - Orchestrating multiple services with Docker Compose  
 
 ---
-
-## 📁 Project Structure
+## Project Structure
+```
 
 fullstack-docker-compose/
 │
@@ -28,39 +29,54 @@ fullstack-docker-compose/
 │
 ├── docker-compose.yml
 └── README.md
-
-Code
-
+```
 ---
 
 ##  Architecture Overview
-
-frontend (React + Nginx)
-|
-|  HTTP (port 5000)
-v
-backend (Node.js + Express)
-|
-|  PostgreSQL connection (port 5432)
-v
-database (PostgreSQL)
-
-Code
-
+```
+                 +------------------+
+                 |     Frontend     |
+                 | React + Nginx    |
+                 |  (Port 3000)     |
+                 +---------+--------+
+                           |
+                           | HTTP (5000)
+                           v
+                 +------------------+
+                 |     Backend      |
+                 | Node.js + Express|
+                 |   (Port 5000)    |
+                 +---------+--------+
+                           |
+                           | PostgreSQL (5432)
+                           v
+                 +------------------+
+                 |    Database      |
+                 |   PostgreSQL     |
+                 |   (Port 5432)    |
+                 +------------------+
+```
 All services run inside Docker and communicate through an internal Docker network.
 
 ---
 
-##  Docker Compose Commands
+##  Docker Compose Setup
 
-### Start all services
+### Build and start all services
+
 ```bash
 docker compose up --build
-Stop all services
-bash
+```
+
+## Stop all services
+
+```bash
 docker compose down
-Application URLs
-Code
+```
+
+##  Application URLs
+
+```bash
 +------------+------------------------+------------------------------+
 | Service    | URL                    | Description                  |
 +------------+------------------------+------------------------------+
@@ -68,63 +84,46 @@ Code
 | Backend    | http://localhost:5000  | Express API                  |
 | PostgreSQL | localhost:5432         | Database (optional access)   |
 +------------+------------------------+------------------------------+
-Screenshots
-Add your screenshots here:
+```
 
-react-running-locally.png
+## Technologies used
 
-react-running-in-docker.png
+- React (Frontend)
+- Node.js + Express (Backend)
+- PostgreSQL (Database)
+- Docker (Containerization)
+- Docker Compose (Orchestration)
+- Nginx (Frontend web server)
+---
 
-compose-up.png
+## Docker Compose Services
 
-compose-frontend.png
+### Frontend
+- Built using multi‑stage Dockerfile
+- Served by Nginx
+- Exposed on port 3000
 
-compose-backend.png
+### Backend
+- Node.js + Express
+- Exposed on port 5000
+- Connects to PostgreSQL using environment variables
 
-Technologies Used
-React (Frontend)
+### Database
+- PostgreSQL 15
+- Persistent storage using Docker volume pgdata
+---
 
-Node.js + Express (Backend)
+## How to Run the Project
 
-PostgreSQL (Database)
+1.Clone the repository
 
-Docker (Containerization)
+2.Navigate into the project folder
 
-Docker Compose (Orchestration)
+3.Run:
 
-Nginx (Frontend web server)
-
-Docker Compose Services
-Frontend
-Built using multi‑stage Dockerfile
-
-Served by Nginx
-
-Exposed on port 3000
-
-Backend
-Node.js + Express
-
-Exposed on port 5000
-
-Connects to PostgreSQL using environment variables
-
-Database
-PostgreSQL 15
-
-Persistent storage using Docker volume pgdata
-
-How to Run the Project
-Clone the repository
-
-Navigate into the project folder
-
-Run:
-
-bash
+```bash
 docker compose up --build
-Open browser:
-
-Frontend → http://localhost:3000
-
-Backend → http://localhost:5000
+```
+4.Open browser:
+- Frontend → http://localhost:3000
+- Backend → http://localhost:5000
