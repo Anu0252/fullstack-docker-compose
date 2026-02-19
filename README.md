@@ -13,8 +13,6 @@ This project demonstrates essential DevOps skills:
 
 ---
 
-##  Project Structure
-
 fullstack-docker-compose/
 │
 ├── backend/
@@ -29,19 +27,33 @@ fullstack-docker-compose/
 │
 ├── docker-compose.yml
 └── README.md
+
 ---
 
 ##  Architecture Overview
-
-frontend (React + Nginx)
-|
-|  HTTP (port 5000)
-v
-backend (Node.js + Express)
-|
-|  PostgreSQL connection (port 5432)
-v
-database (PostgreSQL)
+```
+                 +------------------+
+                 |     Frontend     |
+                 | React + Nginx    |
+                 |  (Port 3000)     |
+                 +---------+--------+
+                           |
+                           | HTTP (5000)
+                           v
+                 +------------------+
+                 |     Backend      |
+                 | Node.js + Express|
+                 |   (Port 5000)    |
+                 +---------+--------+
+                           |
+                           | PostgreSQL (5432)
+                           v
+                 +------------------+
+                 |    Database      |
+                 |   PostgreSQL     |
+                 |   (Port 5432)    |
+                 +------------------+
+```
 All services run inside Docker and communicate through an internal Docker network.
 
 ---
@@ -52,13 +64,13 @@ All services run inside Docker and communicate through an internal Docker networ
 
 ```bash
 docker compose up --build
---
+```
 
 ## Stop all services
 
 ```bash
 docker compose down
---
+```
 
 ##  Application URLs
 
@@ -70,7 +82,7 @@ docker compose down
 | Backend    | http://localhost:5000  | Express API                  |
 | PostgreSQL | localhost:5432         | Database (optional access)   |
 +------------+------------------------+------------------------------+
---
+```
 
 ## Screenshots
 
@@ -82,6 +94,7 @@ docker compose down
 - Docker (Containerization)
 - Docker Compose (Orchestration)
 - Nginx (Frontend web server)
+---
 
 ## Docker Compose Services
 
@@ -98,6 +111,7 @@ docker compose down
 ### Database
 - PostgreSQL 15
 - Persistent storage using Docker volume pgdata
+---
 
 ## How to Run the Project
 
@@ -107,9 +121,7 @@ docker compose down
 
 ```bash
 docker compose up --build
---
-
+```
 4.Open browser:
-
 - Frontend → http://localhost:3000
 - Backend → http://localhost:5000
